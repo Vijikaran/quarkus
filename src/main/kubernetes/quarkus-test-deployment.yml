@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-deployment
+  labels:
+    app: quakus-test
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: quarkus-test
+      labels:
+        app: quarkus-test
+    spec:
+      containers:
+      - name: quarkus-test
+        image: vijikaran/quarkus-test
+        ports:
+        - containerPort: 8080
+  selector:
+    matchLabels:
+      app: quarkus-test

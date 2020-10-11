@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
+import java.net.InetAddress
 
 @QuarkusTest
 class ExampleResourceTest {
@@ -14,7 +15,7 @@ class ExampleResourceTest {
           .`when`().get("/resteasy/hello")
           .then()
              .statusCode(200)
-             .body(`is`("hello"))
+             .body(`is`(InetAddress.getLocalHost().hostName))
     }
 
 }
