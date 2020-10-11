@@ -11,5 +11,5 @@ class ExampleResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    fun hello(): String = InetAddress.getLoopbackAddress().hostName;
+    fun hello(): String = InetAddress.getLocalHost().hostName;
 }
